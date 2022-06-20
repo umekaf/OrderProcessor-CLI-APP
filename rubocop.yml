@@ -1,0 +1,36 @@
+require:
+  - rubocop
+  - rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 2.5
+  Exclude:
+    - 'bin/**/*'
+    - 'exe/**/*'
+    - Rakefile
+  
+Layout/LineLength:
+  Max: 100
+
+Metrics/BlockLength:
+  Exclude:
+    - config/**/*
+    - spec/**/*
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - spec/**/*
+Style/Documentation:
+  Enabled: false
+
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+
+Naming/HeredocDelimiterNaming:
+  Enabled: false
+Metrics/BlockLength:
+  CountComments: false  # count full line comments?
+  Max: 25
+
+Style/Documentation:
+  Enabled: false

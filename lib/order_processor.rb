@@ -1,4 +1,6 @@
-require "order_processor/version"
+# frozen_string_literal: true
+
+require 'order_processor/version'
 
 module OrderProcessor
   class Error < StandardError; end
