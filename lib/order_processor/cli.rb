@@ -2,6 +2,7 @@
 
 module OrderProcessor
   class Cli
+    ordered_items = []
     green_tea_count = 0
     strawberry_count = 0
     coffee_count = 0
@@ -21,6 +22,13 @@ module OrderProcessor
         strawberry_count += 1
       elsif user_input == 'CF1'
         coffee_count += 1
+      end
+
+      if green_tea_count.even?
+        green_tea_count.times { order_items << Product.new('GR1', 'green tea', 3.11 / 2) }
+      else
+        (green_tea_count - 1).times { order_items << Product.new('GR1', 'green tea', 1.55) }
+        order_items << Product.new('GR1', 'green tea', 3.11)
       end
     end
   end
