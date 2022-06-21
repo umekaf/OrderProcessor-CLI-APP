@@ -26,17 +26,17 @@ module OrderProcessor
       end
 
       if green_tea_count.even?
-        green_tea_count.times { order_items << Product.new('GR1', 'green tea', 3.11 / 2) }
+        green_tea_count.times { ordered_items << Product.new('GR1', 'green tea', 3.11 / 2) }
       else
-        (green_tea_count - 1).times { order_items << Product.new('GR1', 'green tea', 1.55) }
-        order_items << Product.new('GR1', 'green tea', 3.11)
+        (green_tea_count - 1).times { ordered_items << Product.new('GR1', 'green tea', 1.55) }
+        ordered_items << Product.new('GR1', 'green tea', 3.11)
       end
 
       strawberry_price = strawberry_count >= 3 ? 4.50 : 5.00
-      strawberry_count.times { order_items << Product.new('SR1', 'strawberry', strawberry_price) }
+      strawberry_count.times { ordered_items << Product.new('SR1', 'strawberry', strawberry_price) }
 
       coffee_price = coffee_count >= 3 ? (11.23 * 2 / 3) : 11.23
-      coffee_count.times { order_items << Product.new('CF1', 'coffee', coffee_price) }
+      coffee_count.times { ordered_items << Product.new('CF1', 'coffee', coffee_price) }
     end
   end
 end
