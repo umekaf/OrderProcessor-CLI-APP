@@ -15,7 +15,7 @@ Layout/LineLength:
 Metrics/BlockLength:
   Exclude:
     - config/**/*
-    - spec/**/*
+    - spec/**/*.rb
 
 Lint/AmbiguousBlockAssociation:
   Exclude:
