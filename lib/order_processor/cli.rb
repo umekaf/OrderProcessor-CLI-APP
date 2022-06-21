@@ -33,6 +33,9 @@ module OrderProcessor
 
       strawberry_price = strawberry_count >= 3 ? 4.50 : 5.00
       strawberry_count.times { order_items << Product.new('SR1', 'strawberry', strawberry_price) }
+
+      coffee_price = coffee_count >= 3 ? (11.23 * 2 / 3) : 11.23
+      coffee_count.times { order_items << Product.new('CF1', 'coffee', coffee_price) }
     end
   end
 end
