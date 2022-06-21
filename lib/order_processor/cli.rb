@@ -2,6 +2,7 @@
 
 require 'order_processor/product'
 require 'order_processor/product_offer'
+require 'order_processor/response_formattor'
 
 module OrderProcessor
   class Cli
@@ -28,12 +29,7 @@ module OrderProcessor
     end
 
     order_items_after_offer = ProductOffer.new(green_tea_count, strawberry_count, coffee_count).call
-
-    print 'Basket'
-    sum = order_items_after_offer.inject(0) do |sum, item|
-      print " #{item.product_code},"
-      sum += item.price
-    end
-    print "Total: #{sum}"
+    all_order_items = ResponseFormattor.new(order_items_after_offer).formatted_response
+    puts all_order_items
   end
 end

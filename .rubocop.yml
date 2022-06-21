@@ -15,7 +15,7 @@ Layout/LineLength:
 Metrics/BlockLength:
   Exclude:
     - config/**/*
-    - spec/**/*.rb
+    - spec/**/*
 
 Lint/AmbiguousBlockAssociation:
   Exclude:
@@ -27,10 +27,4 @@ RSpec/MultipleMemoizedHelpers:
   Enabled: false
 
 Naming/HeredocDelimiterNaming:
-  Enabled: false
-Metrics/BlockLength:
-  CountComments: false  # count full line comments?
-  Max: 25
-
-Style/Documentation:
   Enabled: false

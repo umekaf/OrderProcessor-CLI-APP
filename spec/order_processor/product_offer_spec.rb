@@ -12,6 +12,7 @@ RSpec.describe OrderProcessor::ProductOffer do
     let(:coffee_count) { 0 }
 
     it { is_expected.to be_an Array }
+
     it 'returns single instance of a product' do
       expect(subject.first).to be_an_instance_of(OrderProcessor::Product)
       expect(subject.first.price).to eq(3.11)
@@ -34,6 +35,7 @@ RSpec.describe OrderProcessor::ProductOffer do
     let(:coffee_count) { 0 }
 
     it { is_expected.to be_an Array }
+
     it 'returns single instance of a product' do
       expect(subject.first).to be_an_instance_of(OrderProcessor::Product)
       expect(subject.first.price).to eq(5.00)
@@ -56,6 +58,7 @@ RSpec.describe OrderProcessor::ProductOffer do
     let(:coffee_count) { 2 }
 
     it { is_expected.to be_an Array }
+
     it 'returns single instance of a product' do
       expect(subject.first).to be_an_instance_of(OrderProcessor::Product)
       expect(subject.first.price).to eq(11.23)
