@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require 'order_processor/product'
+require 'order_processor/product_offer'
+
 RSpec.describe OrderProcessor::ProductOffer do
   subject { described_class.new(green_tea_count, strawberry_count, coffee_count).call }
 

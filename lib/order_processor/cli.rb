@@ -1,9 +1,10 @@
 # frozen_string_literal: true
+
 require 'order_processor/product'
+require 'order_processor/product_offer'
 
 module OrderProcessor
   class Cli
-    ordered_items = []
     green_tea_count = 0
     strawberry_count = 0
     coffee_count = 0
@@ -26,21 +27,10 @@ module OrderProcessor
       end
     end
 
-    if green_tea_count.even?
-      green_tea_count.times { ordered_items << Product.new('GR1', 'green tea', 3.11 / 2) }
-    else
-      (green_tea_count - 1).times { ordered_items << Product.new('GR1', 'green tea', 1.55) }
-      ordered_items << Product.new('GR1', 'green tea', 3.11)
-    end
-
-    strawberry_price = strawberry_count >= 3 ? 4.50 : 5.00
-    strawberry_count.times { ordered_items << Product.new('SR1', 'strawberry', strawberry_price) }
-
-    coffee_price = coffee_count >= 3 ? (11.23 * 2 / 3) : 11.23
-    coffee_count.times { ordered_items << Product.new('CF1', 'coffee', coffee_price) }
+    order_items_after_offer = ProductOffer.new(green_tea_count, strawberry_count, coffee_count).call
 
     print 'Basket'
-    sum = ordered_items.inject(0) do |sum, item|
+    sum = order_items_after_offer.inject(0) do |sum, item|
       print " #{item.product_code},"
       sum += item.price
     end
