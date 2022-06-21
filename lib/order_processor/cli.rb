@@ -11,6 +11,17 @@ module OrderProcessor
       input = gets.chomp
       user_input = input.upcase
       break if user_input == 'STOP'
+
+      item = Product::PRODUCT_LIST.find { |product| product[:product_code] == user_input }
+      if item.nil?
+        puts 'Item you have entered is not valid. Please enter a valid item'
+      elsif user_input == 'GR1'
+        green_tea_count += 1
+      elsif user_input == 'SR1'
+        strawberry_count += 1
+      elsif user_input == 'CF1'
+        coffee_count += 1
+      end
     end
   end
 end
