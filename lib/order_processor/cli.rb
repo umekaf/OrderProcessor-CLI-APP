@@ -30,6 +30,9 @@ module OrderProcessor
         (green_tea_count - 1).times { order_items << Product.new('GR1', 'green tea', 1.55) }
         order_items << Product.new('GR1', 'green tea', 3.11)
       end
+
+      strawberry_price = strawberry_count >= 3 ? 4.50 : 5.00
+      strawberry_count.times { order_items << Product.new('SR1', 'strawberry', strawberry_price) }
     end
   end
 end
